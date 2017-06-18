@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yokgoodchild.roadsideassistance.RequestForHelp.RequestForHelpActivity">
+
+    <include
+        android:id="@+id/ac_request_toolbar"
+        layout="@layout/toolbar_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ac_request_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/fm_request_for_help_linear001"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/fm_request_for_help_txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2"
+                    android:hint="Title"
+                    android:background="@drawable/from_input"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/fm_request_for_help_txt_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle"
+                    android:layout_marginTop="10dp"
+                    android:hint="FullName"
+                    android:background="@drawable/from_input"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/fm_request_for_help_txt_detail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="top|left"
+                    android:hint="Detail"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="10"
+                    android:minLines="6"
+                    android:background="@drawable/from_input"
+                    android:padding="10dp"
+                    android:textSize="20sp"
+                    android:scrollbars="vertical"/>
+
+                <Spinner
+                    android:id="@+id/fm_request_for_help_spinner_type_car"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtDetail"
+                    android:layout_marginTop="19dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:id="@+id/fm_request_for_help_btn_upload_img"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/spinerTypeCar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="28dp"
+                    android:text="Upload Image"
+                    android:background="@drawable/button_submit"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="isUploadImage"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnTakePhoto"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/fm_request_for_help_imgViewShow" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:padding="16dp">
+
+
+        <Button
+            android:id="@+id/fm_request_for_help_btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/button_submit"
+            android:textColor="@android:color/white"
+            android:onClick="onClickSubmitRequest"
+            android:text="Submit" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorSplash">#ff8c00</color>
+    <color name="colorBody">#ff8c00</color>
+    <color name="colorHead">#ff8c00</color>
+    <color name="colorAccented">#FFFFFF</color>
+    <color name="colorBackground">#dae2e2e2</color>
+    <color name="colorText">#f39c12</color>
+    <color name="color_Dialog">#32f39c12</color>
+    <color name="colorToolbar_text">#FFFFFF</color>
+
+    <color name="dot_active">#f39c12</color>
+    <color name="dot_inactive">#cccccc</color>
+
+</resources>

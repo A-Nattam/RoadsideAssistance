@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yokgoodchild.roadsideassistance.ListHelpRequest.ListHelpRequestActivity">
+
+    <include
+        android:id="@+id/list_help_request_toolbar"
+        layout="@layout/toolbar_back"/>
+
+
+    <LinearLayout
+        android:id="@+id/list_help_request_linear001"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_help_request_toolbar"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <RadioButton
+            android:id="@+id/list_help_request_radio_request"
+            android:text="รายการร้องขอ"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorText"/>
+
+        <RadioButton
+            android:id="@+id/list_help_request_radio_accept_reply"
+            android:text="รายการยืนยัน"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:buttonTint="@color/colorText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/list_help_request_linear001"
+        android:padding="15dp">
+
+        <ListView
+            android:id="@+id/list_help_request_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yokgoodchild.roadsideassistance.Main_User">
+
+    <include
+        layout="@layout/toolbar_menu_user"
+        android:id="@+id/main_user_toolbar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_below="@+id/main_user_toolbar">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/main_user_btn_request"
+                        android:layout_width="300dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/slide_request"
+                        android:onClick="onClickMain_User_Request" />
+
+                    <Button
+                        android:id="@+id/main_user_btn_view_reply"
+                        android:layout_width="300dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/slide_list_reply"
+                        android:onClick="onClickMain_User_ViewReply" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="เขียนคำขอ"
+                        android:textSize="15dp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ตรวจสอบการตอบรับ"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/main_user_btn_view_map"
+                        android:layout_width="300dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/slide_maps" />
+
+                    <Button
+                        android:id="@+id/main_user_btn_reate_score"
+                        android:layout_width="300dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:onClick="onClickMain_User_RateServiceScore"
+                        android:background="@drawable/slide_scoring" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ดูแผนที่"
+                        android:textSize="15dp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ให้คะแนน"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_container_main_user_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </LinearLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu_red"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_singleLine="true"
+        fab:menu_backgroundColor="#ccffffff"
+        fab:menu_fab_label="Menu label">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_setting_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_setting_black"
+            fab:fab_size="mini"
+            fab:fab_label="Setting" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_weather_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_weather"
+            fab:fab_size="mini"
+            fab:fab_label="Weather" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_logout_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lock_black"
+            fab:fab_size="mini"
+            fab:fab_label="Log Out" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>

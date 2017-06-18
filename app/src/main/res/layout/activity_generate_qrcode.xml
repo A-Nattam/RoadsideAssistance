@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yokgoodchild.roadsideassistance.GenerateQRCode.GenerateQRCodeActivity">
+
+    <include
+        android:id="@+id/generation_qr_code_toolbar"
+        layout="@layout/toolbar_back"/>
+
+    <View
+        android:id="@+id/generation_qr_code_view001"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/generation_qr_code_toolbar"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@+id/generation_qr_code_view001">
+
+        <ImageView
+            android:id="@+id/generation_qr_code_img_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>

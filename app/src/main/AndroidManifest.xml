@@ -46,7 +46,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RateServiceScore.RateServiceScoreActivity"></activity>
+        <activity android:name=".RateServiceScore.RateServiceScoreActivity" />
+        <activity android:name=".GenerateQRCode.GenerateQRCodeActivity"></activity>
     </application>
 
 </manifest>

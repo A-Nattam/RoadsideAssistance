@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.yokgoodchild.roadsideassistance.GenerateQRCode.GenerateQRCodeActivity;
 import com.example.yokgoodchild.roadsideassistance.ListHelpRequest.ListHelpRequestActivity;
 import com.example.yokgoodchild.roadsideassistance.Login.LoginActivity;
 import com.example.yokgoodchild.roadsideassistance.SharedPreferences.StringPreferences;
@@ -47,5 +48,10 @@ public class Main_RepairShop extends AppCompatActivity {
     public void clearSessionLogin(SharedPreferences s, String key){
         StringPreferences session = new StringPreferences(s,key);
         session.delete();
+    }
+
+    public void onClickGenerateQRCode(View v){
+        Intent intent = new Intent(Main_RepairShop.this, GenerateQRCodeActivity.class);
+        startActivity(intent);
     }
 }

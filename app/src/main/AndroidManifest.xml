@@ -37,8 +37,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main_User" />
         </activity>
-        <activity android:name=".ViewReply.ViewReplyActivity" />
-        <activity android:name=".AcceptReply.AcceptReplyActivity" />
+        <activity android:name=".ViewReply.ViewReplyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_User" />
+        </activity>
+        <activity android:name=".AcceptReply.AcceptReplyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewReply.ViewReplyActivity" />
+        </activity>
         <activity android:name=".ListHelpRequest.ListHelpRequestActivity" />
         <activity android:name=".ReplyHelpRequest.ReplyHelpRequestActivity" />
 
@@ -46,8 +54,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RateServiceScore.RateServiceScoreActivity" />
-        <activity android:name=".GenerateQRCode.GenerateQRCodeActivity"></activity>
+        <activity android:name=".RateServiceScore.RateServiceScoreActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_User" />
+        </activity>
+        <activity android:name=".GenerateQRCode.GenerateQRCodeActivity" />
+        <activity android:name=".RateServiceScore.ScanQRCodeRateServiceScoreActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RateServiceScore.RateServiceScoreActivity" />
+        </activity>
     </application>
 
 </manifest>

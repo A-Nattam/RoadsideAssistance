@@ -97,22 +97,22 @@ public class ViewReplyActivity extends AppCompatActivity implements ViewReplyMan
             }
         });
 
-//        listview.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(ViewReplyActivity.this, "Click", Toast.LENGTH_SHORT).show();
-//                String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
-//                Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
-//                intent.putExtra("reply",dataIntent);
-//                intent.putExtra("status",status);
-//                startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+        listview.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(ViewReplyActivity.this, "Click", Toast.LENGTH_SHORT).show();
+                String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
+                Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
+                intent.putExtra("reply",dataIntent);
+                intent.putExtra("status",status);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 

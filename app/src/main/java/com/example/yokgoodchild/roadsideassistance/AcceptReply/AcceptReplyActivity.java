@@ -6,8 +6,10 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -31,6 +33,14 @@ public class AcceptReplyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accept_reply);
+
+        int baseColor = ContextCompat.getColor(this, R.color.colorToolbar_text);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.accept_reply_toolbar);
+        toolbar.setTitle("Accept Reply");
+        toolbar.setTitleTextColor(baseColor);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView title = (TextView) findViewById(R.id.fm_accept_reply_title);
         TextView date = (TextView) findViewById(R.id.fm_accept_reply_date);
@@ -88,7 +98,7 @@ public class AcceptReplyActivity extends AppCompatActivity {
     public void onClickSubmitAcceptReply(View v){
         AcceptReplyManager acceptReplyManager = new AcceptReplyManager(AcceptReplyActivity.this);
         acceptReplyManager.setURL(getString(R.string.url));
-        acceptReplyManager.getReplyDetail(replyBean.getReplyid(),"1",replyBean.getRequestid(),replyBean.getRepair().getRegistrationID());
+        acceptReplyManager.isAcceptStatus(replyBean.getReplyid(),"1",replyBean.getRequestid(),replyBean.getRepair().getRegistrationID());
     }
 
     public void onClickCancelAcceptReply(View v){

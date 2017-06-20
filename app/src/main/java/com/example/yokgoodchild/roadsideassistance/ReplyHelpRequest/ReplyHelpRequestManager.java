@@ -36,7 +36,7 @@ public class ReplyHelpRequestManager {
         this.activity = tvolley;
     }
 
-    public void insertRequestForHelp(ReplyBean replyBean){
+    public void isInsertReply(ReplyBean replyBean){
 
         final ReplyBean reply = replyBean;
 

@@ -26,6 +26,7 @@ import com.example.yokgoodchild.roadsideassistance.ClassBean.ReplyBean;
 import com.example.yokgoodchild.roadsideassistance.ClassBean.RequestBean;
 import com.example.yokgoodchild.roadsideassistance.ListHelpRequest.ListHelpRequestActivity;
 import com.example.yokgoodchild.roadsideassistance.Map.FM_Map_Marker;
+import com.example.yokgoodchild.roadsideassistance.Map.FM_Map_Markers;
 import com.example.yokgoodchild.roadsideassistance.R;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.gson.Gson;
@@ -114,11 +115,21 @@ public class ReplyHelpRequestActivity extends AppCompatActivity {
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Bundle bundle = new Bundle();
+//                bundle.putString("latitude", requestBean.getLatitude());
+//                bundle.putString("longitude", requestBean.getLongitude());
+//
+//                Fragment one = new FM_Map_Marker();
+//                one.setArguments(bundle);
+//                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//                transaction1.add(R.id.show_Map, one);
+//                transaction1.addToBackStack(null);
+//                transaction1.commit();
                 Bundle bundle = new Bundle();
                 bundle.putString("latitude", requestBean.getLatitude());
                 bundle.putString("longitude", requestBean.getLongitude());
 
-                Fragment one = new FM_Map_Marker();
+                Fragment one = new FM_Map_Markers();
                 one.setArguments(bundle);
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                 transaction1.add(R.id.show_Map, one);
@@ -144,7 +155,7 @@ public class ReplyHelpRequestActivity extends AppCompatActivity {
 
         replyHelpRequestManager.setURL(getString(R.string.url));
 
-        replyHelpRequestManager.insertRequestForHelp(reply);
+        replyHelpRequestManager.isInsertReply(reply);
 
         Toast.makeText(this, "ทำรายการสำเร็จ", Toast.LENGTH_SHORT).show();
 

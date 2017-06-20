@@ -30,7 +30,7 @@ public class AcceptReplyManager {
 
     public AcceptReplyManager(AcceptReplyActivity tvolley){ this.activity = tvolley; }
 
-    public void getReplyDetail(int replyID, String Status, int requestID, String registrationID){
+    public void isAcceptStatus(int replyID, String Status, int requestID, String registrationID){
         final int replyid = replyID ;
         final String status = Status ;
         final int requestid = requestID;

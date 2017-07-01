@@ -86,8 +86,8 @@ public class MapsUserActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MapsUserActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapsUserActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-                setMaker(listLocation);
-                //myLocation();
+//                setMaker(listLocation);
+                myLocation();
 //                googleMap.setMyLocationEnabled(true);
 //                googleMap.setIndoorEnabled(true);
 //                googleMap.setBuildingsEnabled(true);
@@ -124,20 +124,28 @@ public class MapsUserActivity extends AppCompatActivity {
             lat = location.getLatitude();
             lng = location.getLongitude();
 
-//            setMaker(lat , lng);
+            setMaker(listLocation,lat , lng);
         }
     }
 
-    private void setMaker(ArrayList<RepairShopBean> listRepair) {
-        for(RepairShopBean repair : listRepair){
-            LatLng setLatlng = new LatLng(Double.parseDouble(repair.getLatitude()), Double.parseDouble(repair.getLongitude()));
-            CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 200);
+    private void setMaker(ArrayList<RepairShopBean> listRepair, double lat, double lng) {
+        LatLng setLatlnged = new LatLng(lat, lng);
+        CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlnged, 15);
+        for (RepairShopBean repair : listRepair) {
+            LatLng setLatlngs = new LatLng(Double.parseDouble(repair.getLatitude()), Double.parseDouble(repair.getLongitude()));
+//            CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 200);
             marker = googleMap.addMarker(new MarkerOptions()
-                    .position(setLatlng)
+                    .position(setLatlngs)
                     .title("Hello SetMarker")
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location)));
-            googleMap.animateCamera(cemarUpdate);
+//            googleMap.animateCamera(cemarUpdate);
         }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        googleMap.setMyLocationEnabled(true);
+        googleMap.animateCamera(cemarUpdate);
 //        LatLng setLatlng = new LatLng(lat, lng);
 //        CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 15);
 //        if (marker != null) marker.remove();

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.yokgoodchild.roadsideassistance.GenerateQRCode.GenerateQRCodeActivity;
 import com.example.yokgoodchild.roadsideassistance.ListHelpRequest.ListHelpRequestActivity;
 import com.example.yokgoodchild.roadsideassistance.Login.LoginActivity;
+import com.example.yokgoodchild.roadsideassistance.Map.MapRepairShopActivity;
 import com.example.yokgoodchild.roadsideassistance.SharedPreferences.StringPreferences;
 import com.example.yokgoodchild.roadsideassistance.ViewScore.ViewScoreActivity;
 
@@ -76,7 +77,8 @@ public class Main_RepairShop extends AppCompatActivity {
     }
 
     public void onClickRepairShop_Map(View v){
-        
+        Intent intent = new Intent(Main_RepairShop.this, MapRepairShopActivity.class);
+        startActivity(intent);
     }
 
 }

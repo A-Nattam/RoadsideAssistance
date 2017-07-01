@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -65,11 +66,19 @@ public class ViewReplyActivity extends AppCompatActivity implements ViewReplyMan
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
-                Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
-                intent.putExtra("reply",dataIntent);
-                intent.putExtra("status",status);
-                startActivity(intent);
+//                String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
+//                Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
+//                intent.putExtra("reply",dataIntent);
+//                intent.putExtra("status",status);
+//                startActivity(intent);
+                if(getViewReply.getListReplyData().size() !=0){
+                    Toast.makeText(ViewReplyActivity.this, "Click", Toast.LENGTH_SHORT).show();
+                    String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
+                    Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
+                    intent.putExtra("reply",dataIntent);
+                    intent.putExtra("status",status);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -97,23 +106,6 @@ public class ViewReplyActivity extends AppCompatActivity implements ViewReplyMan
             }
         });
 
-        listview.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ViewReplyActivity.this, "Click", Toast.LENGTH_SHORT).show();
-                String dataIntent = new Gson().toJson(getViewReply.getListReplyData().get(position));
-                Intent intent = new Intent(ViewReplyActivity.this, AcceptReplyActivity.class);
-                intent.putExtra("reply",dataIntent);
-                intent.putExtra("status",status);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
     }
 
     @Override
@@ -128,22 +120,28 @@ public class ViewReplyActivity extends AppCompatActivity implements ViewReplyMan
     public void updateViewReply(GetViewReply data) {
         dialog.dismiss();
         getViewReply = data;
-        ArrayList<ReplyBean> dataModels = new ArrayList<>();
-        for(int i = 0 ; i < data.getListReplyData().size() ; i++){
-            dataModels.add(new ReplyBean(
-                    data.getListReplyData().get(i).getReplyid(),
-                    data.getListReplyData().get(i).getTitleReply(),
-                    data.getListReplyData().get(i).getDateReply(),
-                    data.getListReplyData().get(i).getStatusReply(),
-                    data.getListReplyData().get(i).getRequestid(),
-                    data.getListReplyData().get(i).getRepair(),
-                    data.getListReplyData().get(i).getDetail(),
-                    data.getListReplyData().get(i).getPrice(),
-                    data.getListReplyData().get(i).getPhoto()
-                    ));
+
+        if(data.getListReplyData().size() != 0){
+            ArrayList<ReplyBean> dataModels = new ArrayList<>();
+            for(int i = 0 ; i < data.getListReplyData().size() ; i++){
+                dataModels.add(new ReplyBean(
+                        data.getListReplyData().get(i).getReplyid(),
+                        data.getListReplyData().get(i).getTitleReply(),
+                        data.getListReplyData().get(i).getDateReply(),
+                        data.getListReplyData().get(i).getStatusReply(),
+                        data.getListReplyData().get(i).getRequestid(),
+                        data.getListReplyData().get(i).getRepair(),
+                        data.getListReplyData().get(i).getDetail(),
+                        data.getListReplyData().get(i).getPrice(),
+                        data.getListReplyData().get(i).getPhoto()
+                ));
+            }
+            adapter_viewReply = new CustomAdapter_ViewReply(dataModels,this,status);
+            listview.setAdapter(adapter_viewReply);
+        }else{
+            String[] worning = {"ไม่มีการตอบรับ"};
+            listview.setAdapter(new ArrayAdapter<String>(ViewReplyActivity.this,android.R.layout.simple_list_item_1, worning));
         }
-        adapter_viewReply = new CustomAdapter_ViewReply(dataModels,this,status);
-        listview.setAdapter(adapter_viewReply);
 
     }
 

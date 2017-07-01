@@ -138,44 +138,56 @@
 
     </LinearLayout>
 
-    <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/menu_red"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        fab:menu_labels_ellipsize="end"
-        fab:menu_labels_singleLine="true"
-        fab:menu_backgroundColor="#ccffffff"
-        fab:menu_fab_label="Menu label">
+    <RelativeLayout
+        android:gravity="bottom|right"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_setting_repair_shop"
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/menu_red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_setting_black"
-            fab:fab_size="mini"
-            fab:fab_label="Setting" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            fab:fab_addButtonColorNormal="@color/cardview_light_background"
+            fab:fab_addButtonColorPressed="@color/colorHead"
+            fab:fab_addButtonSize="normal"
+            fab:fab_addButtonPlusIconColor="@color/cast_intro_overlay_button_background_color"
+            fab:fab_expandDirection="up"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_weather_repair_shop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_weather"
-            fab:fab_size="mini"
-            fab:fab_label="Weather" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_setting_repair_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/cardview_light_background"
+                fab:fab_colorPressed="@color/colorHead"
+                fab:fab_icon="@drawable/ic_setting_black"
+                fab:fab_size="normal"/>
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_logout_repair_shop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_lock_black"
-            fab:fab_size="mini"
-            fab:fab_label="Log Out" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_weather_repair_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_icon="@drawable/ic_weather"
+                fab:fab_colorNormal="@color/cardview_light_background"
+                fab:fab_colorPressed="@color/colorHead"
+                fab:fab_title="Click to remove"/>
 
-    </com.github.clans.fab.FloatingActionMenu>
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_logout_repair_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_icon="@drawable/ic_lock_black"
+                fab:fab_colorNormal="@color/cardview_light_background"
+                fab:fab_colorPressed="@color/colorHead"/>
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    </RelativeLayout>
 
 </RelativeLayout>

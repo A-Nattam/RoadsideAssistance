@@ -25,8 +25,7 @@ public class Main_RepairShop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__repair_shop);
 
-        com.github.clans.fab.FloatingActionButton logout = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab_logout_repair_shop);
-        logout.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab_logout_repair_shop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Main_RepairShop.this, "Log out", Toast.LENGTH_SHORT).show();
@@ -39,6 +38,21 @@ public class Main_RepairShop extends AppCompatActivity {
                 finish();
             }
         });
+
+//        com.github.clans.fab.FloatingActionButton logout = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab_logout_repair_shop);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(Main_RepairShop.this, "Log out", Toast.LENGTH_SHORT).show();
+//                SharedPreferences sp = getSharedPreferences(DATA_LOGIN, Context.MODE_PRIVATE);
+//                clearSessionLogin(sp,LOGIN_DATA);
+//                clearSessionLogin(sp,LOGIN_STATUS);
+//
+//                Intent intent = new Intent(Main_RepairShop.this, LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     public void onClickListHelpRequest(View v){
@@ -59,6 +73,10 @@ public class Main_RepairShop extends AppCompatActivity {
     public void onClickViewScore(View v){
         Intent intent = new Intent(Main_RepairShop.this, ViewScoreActivity.class);
         startActivity(intent);
+    }
+
+    public void onClickRepairShop_Map(View v){
+        
     }
 
 }

@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
@@ -16,24 +15,18 @@ import android.view.ViewGroup;
 
 import com.example.yokgoodchild.roadsideassistance.ClassBean.RepairShopBean;
 import com.example.yokgoodchild.roadsideassistance.R;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-public class MapsUserActivity extends AppCompatActivity {
+public class MapRepairShopActivity extends AppCompatActivity {
 
     private MapView mMapView;
     private GoogleMap googleMap;
@@ -49,10 +42,10 @@ public class MapsUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps_user);
+        setContentView(R.layout.activity_map_repair_shop);
 
         int baseColor = ContextCompat.getColor(this, R.color.colorToolbar_text);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.maps_user_tiilbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.maps_repairshop_tiilbar);
         toolbar.setTitle("Request For Help");
         toolbar.setTitleTextColor(baseColor);
         setSupportActionBar(toolbar);
@@ -83,11 +76,10 @@ public class MapsUserActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
 
-                if (ActivityCompat.checkSelfPermission(MapsUserActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapsUserActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(MapRepairShopActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapRepairShopActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-                setMaker(listLocation);
-                //myLocation();
+                myLocation();
 //                googleMap.setMyLocationEnabled(true);
 //                googleMap.setIndoorEnabled(true);
 //                googleMap.setBuildingsEnabled(true);
@@ -124,39 +116,30 @@ public class MapsUserActivity extends AppCompatActivity {
             lat = location.getLatitude();
             lng = location.getLongitude();
 
-//            setMaker(lat , lng);
+            setMaker(lat, lng);
         }
     }
 
-    private void setMaker(ArrayList<RepairShopBean> listRepair) {
-        for(RepairShopBean repair : listRepair){
-            LatLng setLatlng = new LatLng(Double.parseDouble(repair.getLatitude()), Double.parseDouble(repair.getLongitude()));
-            CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 200);
-            marker = googleMap.addMarker(new MarkerOptions()
-                    .position(setLatlng)
-                    .title("Hello SetMarker")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location)));
-            googleMap.animateCamera(cemarUpdate);
-        }
-//        LatLng setLatlng = new LatLng(lat, lng);
-//        CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 15);
+    private void setMaker(double lat, double lng) {
+        LatLng setLatlng = new LatLng(lat, lng);
+        CameraUpdate cemarUpdate = CameraUpdateFactory.newLatLngZoom(setLatlng, 15);
 //        if (marker != null) marker.remove();
 //        marker = googleMap.addMarker(new MarkerOptions()
 //                .position(setLatlng)
 //                .title("Hello Position")
 //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location)));
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//        googleMap.setMyLocationEnabled(true);
-//        googleMap.animateCamera(cemarUpdate);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        googleMap.setMyLocationEnabled(true);
+        googleMap.animateCamera(cemarUpdate);
     }
 
     android.location.LocationListener locationLisener = new android.location.LocationListener() {
@@ -204,4 +187,5 @@ public class MapsUserActivity extends AppCompatActivity {
         super.onLowMemory();
         mMapView.onLowMemory();
     }
+
 }

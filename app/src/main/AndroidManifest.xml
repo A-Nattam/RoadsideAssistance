@@ -90,6 +90,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main_User" />
         </activity>
+        <activity android:name=".Map.MapRepairShopActivity"></activity>
     </application>
 
 </manifest>

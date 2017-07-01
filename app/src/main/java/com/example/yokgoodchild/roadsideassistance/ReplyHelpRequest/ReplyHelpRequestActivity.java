@@ -11,8 +11,10 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -54,6 +56,14 @@ public class ReplyHelpRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reply_help_request);
+
+        int baseColor = ContextCompat.getColor(this, R.color.colorToolbar_text);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.reply_help_request_toolbar);
+        toolbar.setTitle("");
+        toolbar.setTitleTextColor(baseColor);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         SharedPreferences sp = getSharedPreferences(DATA_LOGIN, Context.MODE_PRIVATE);
         String data_login = sp.getString(LOGIN_DATA, "Fail");
@@ -115,26 +125,26 @@ public class ReplyHelpRequestActivity extends AppCompatActivity {
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putString("latitude", requestBean.getLatitude());
-//                bundle.putString("longitude", requestBean.getLongitude());
-//
-//                Fragment one = new FM_Map_Marker();
-//                one.setArguments(bundle);
-//                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
-//                transaction1.add(R.id.show_Map, one);
-//                transaction1.addToBackStack(null);
-//                transaction1.commit();
                 Bundle bundle = new Bundle();
                 bundle.putString("latitude", requestBean.getLatitude());
                 bundle.putString("longitude", requestBean.getLongitude());
 
-                Fragment one = new FM_Map_Markers();
+                Fragment one = new FM_Map_Marker();
                 one.setArguments(bundle);
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                 transaction1.add(R.id.show_Map, one);
                 transaction1.addToBackStack(null);
                 transaction1.commit();
+//                Bundle bundle = new Bundle();
+//                bundle.putString("latitude", requestBean.getLatitude());
+//                bundle.putString("longitude", requestBean.getLongitude());
+//
+//                Fragment one = new FM_Map_Markers();
+//                one.setArguments(bundle);
+//                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//                transaction1.add(R.id.show_Map, one);
+//                transaction1.addToBackStack(null);
+//                transaction1.commit();
             }
         });
     }

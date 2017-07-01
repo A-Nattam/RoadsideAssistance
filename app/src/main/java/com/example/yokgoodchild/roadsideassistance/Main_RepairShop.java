@@ -12,6 +12,7 @@ import com.example.yokgoodchild.roadsideassistance.GenerateQRCode.GenerateQRCode
 import com.example.yokgoodchild.roadsideassistance.ListHelpRequest.ListHelpRequestActivity;
 import com.example.yokgoodchild.roadsideassistance.Login.LoginActivity;
 import com.example.yokgoodchild.roadsideassistance.SharedPreferences.StringPreferences;
+import com.example.yokgoodchild.roadsideassistance.ViewScore.ViewScoreActivity;
 
 public class Main_RepairShop extends AppCompatActivity {
 
@@ -54,4 +55,10 @@ public class Main_RepairShop extends AppCompatActivity {
         Intent intent = new Intent(Main_RepairShop.this, GenerateQRCodeActivity.class);
         startActivity(intent);
     }
+
+    public void onClickViewScore(View v){
+        Intent intent = new Intent(Main_RepairShop.this, ViewScoreActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -37,33 +37,58 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main_User" />
         </activity>
-        <activity android:name=".ViewReply.ViewReplyActivity" >
+        <activity android:name=".ViewReply.ViewReplyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main_User" />
         </activity>
-        <activity android:name=".AcceptReply.AcceptReplyActivity" >
+        <activity android:name=".AcceptReply.AcceptReplyActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ViewReply.ViewReplyActivity" />
         </activity>
-        <activity android:name=".ListHelpRequest.ListHelpRequestActivity" />
-        <activity android:name=".ReplyHelpRequest.ReplyHelpRequestActivity" />
+        <activity android:name=".ListHelpRequest.ListHelpRequestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_RepairShop" />
+        </activity>
+        <activity android:name=".ReplyHelpRequest.ReplyHelpRequestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListHelpRequest.ListHelpRequestActivity" />
+        </activity>
 
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Main_RepairShop" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RateServiceScore.RateServiceScoreActivity" >
+        <activity android:name=".RateServiceScore.RateServiceScoreActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main_User" />
         </activity>
-        <activity android:name=".GenerateQRCode.GenerateQRCodeActivity" />
+        <activity android:name=".GenerateQRCode.GenerateQRCodeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_RepairShop" />
+        </activity>
         <activity android:name=".RateServiceScore.ScanQRCodeRateServiceScoreActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RateServiceScore.RateServiceScoreActivity" />
+        </activity>
+        <activity android:name=".ViewScore.ViewScoreActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_RepairShop" />
+        </activity>
+        <activity android:name=".Map.MapsUserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main_User" />
         </activity>
     </application>
 

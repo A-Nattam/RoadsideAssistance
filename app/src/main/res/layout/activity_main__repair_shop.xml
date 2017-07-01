@@ -50,7 +50,7 @@
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:onClick="onClick_ViewScore"
+                        android:onClick="onClickViewScore"
                         android:background="@drawable/menu_check_satisfaction" />
                 </LinearLayout>
 

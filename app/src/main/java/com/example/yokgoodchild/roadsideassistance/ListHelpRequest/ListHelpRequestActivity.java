@@ -3,8 +3,10 @@ package com.example.yokgoodchild.roadsideassistance.ListHelpRequest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,6 +38,14 @@ public class ListHelpRequestActivity extends AppCompatActivity implements ListHe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_help_request);
+
+        int baseColor = ContextCompat.getColor(this, R.color.colorToolbar_text);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.list_help_request_toolbar);
+        toolbar.setTitle("");
+        toolbar.setTitleTextColor(baseColor);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         radio_request = (RadioButton) findViewById(R.id.list_help_request_radio_request);
         radio_accept_reply = (RadioButton) findViewById(R.id.list_help_request_radio_accept_reply);
@@ -76,7 +86,6 @@ public class ListHelpRequestActivity extends AppCompatActivity implements ListHe
                 intent.putExtra("request",obj);
                 intent.putExtra("status",status);
                 startActivity(intent);
-
             }
         });
 

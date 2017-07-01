@@ -40,7 +40,7 @@ public class FM_Map_Markers extends Fragment {
     private ViewGroup root;
     private Marker marker;
 
-    ArrayList<RepairShopBean> listLocation;
+    private ArrayList<RepairShopBean> listLocation;
 
     double lat = 0.0;
     double lng = 0.0;

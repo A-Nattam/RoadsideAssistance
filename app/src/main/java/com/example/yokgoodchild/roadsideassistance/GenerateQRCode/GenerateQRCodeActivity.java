@@ -3,8 +3,10 @@ package com.example.yokgoodchild.roadsideassistance.GenerateQRCode;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.example.yokgoodchild.roadsideassistance.ClassBean.RepairShopBean;
@@ -27,6 +29,14 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_qrcode);
+
+        int baseColor = ContextCompat.getColor(this, R.color.colorToolbar_text);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.generation_qr_code_toolbar);
+        toolbar.setTitle("Request For Help");
+        toolbar.setTitleTextColor(baseColor);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         SharedPreferences sp = getSharedPreferences(DATA_LOGIN, Context.MODE_PRIVATE);
         String data_login = sp.getString(LOGIN_DATA, "Fail");

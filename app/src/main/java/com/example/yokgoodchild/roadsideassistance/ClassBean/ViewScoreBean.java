@@ -1,4 +1,4 @@
-package com.example.yokgoodchild.roadside.View_Score.View_Score_Retrofit2;
+package com.example.yokgoodchild.roadsideassistance.ClassBean;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

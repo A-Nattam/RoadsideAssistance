@@ -9,7 +9,7 @@ android {
         targetSdkVersion 25
         def STRING = "String"
         def RSA_API_BASE_URL = "RSA_API_BASE_URL"
-        buildConfigField STRING, RSA_API_BASE_URL, "\"http://192.168.1.11:8086/Mini/\""
+        buildConfigField STRING, RSA_API_BASE_URL, "\"http://192.168.2.161:8086/Mini/\""
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

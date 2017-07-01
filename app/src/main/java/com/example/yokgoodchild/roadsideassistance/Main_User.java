@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.yokgoodchild.roadsideassistance.Login.LoginActivity;
+import com.example.yokgoodchild.roadsideassistance.Map.MapsUserActivity;
 import com.example.yokgoodchild.roadsideassistance.RateServiceScore.RateServiceScoreActivity;
 import com.example.yokgoodchild.roadsideassistance.RequestForHelp.RequestForHelpActivity;
 import com.example.yokgoodchild.roadsideassistance.SharedPreferences.StringPreferences;
@@ -58,6 +59,11 @@ public class Main_User extends AppCompatActivity {
 
     public void onClickMain_User_RateServiceScore(View v){
         Intent intent = new Intent(Main_User.this,RateServiceScoreActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickMain_User_Maps(View v){
+        Intent intent = new Intent(Main_User.this,MapsUserActivity.class);
         startActivity(intent);
     }
 
